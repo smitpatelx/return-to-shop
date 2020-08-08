@@ -24,7 +24,7 @@ function wc_empty_cart_redirect_url() {
         } elseif ( $language == 'es' ) {
             $redirect_url = '/'.$slug.'/?lang=es';
         } else {
-            $redirect_url = '/'.$slug.'/w';
+            $redirect_url = '/'.$slug.'/';
         }
     } else {
         $redirect_url = '/'.$slug.'/'; 
