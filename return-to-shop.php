@@ -16,15 +16,16 @@ function wc_empty_cart_redirect_url() {
     $rts_wpml_support = get_option('rts_wpml_support',0);
 
 	$redirect_url = '';
-	$language = apply_filters( 'wpml_current_language', NULL );
-
+    
     if($rts_wpml_support) {
-        if ( $language == 'fr' ) {
-            $redirect_url = '/'.$slug.'/?lang=fr';
-        } elseif ( $language == 'es' ) {
-            $redirect_url = '/'.$slug.'/?lang=es';
-        } else {
+        $language = apply_filters( 'wpml_current_language', NULL );
+
+        $url_red_wpml = '/?lang='.$language;
+
+        if(is_null($language)) {
             $redirect_url = '/'.$slug.'/';
+        } else {
+            $redirect_url = '/'.$slug.$url_red_wpml;
         }
     } else {
         $redirect_url = '/'.$slug.'/'; 
