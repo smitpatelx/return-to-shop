@@ -16,19 +16,32 @@ function wc_empty_cart_redirect_url() {
     $rts_wpml_support = get_option('rts_wpml_support',0);
 
 	$redirect_url = '';
-    
-    if($rts_wpml_support) {
-        $language = apply_filters( 'wpml_current_language', NULL );
+	$language = apply_filters( 'wpml_current_language', NULL );
+    $url_red_wpml = '/?lang='.$language;
 
-        $url_red_wpml = '/?lang='.$language;
+    global $wp;
+    $current_page = add_query_arg( array(), $wp->request );
 
-        if(is_null($language)) {
-            $redirect_url = '/'.$slug.'/';
+    if($current_page=='cart' || $current_page=='panier' || $current_page=='carrito') {
+        if($rts_wpml_support) {
+            if(is_null($language) || $language == 'en') {
+                $redirect_url = '/'.$slug.'/';
+            } else {
+                $redirect_url = '/'.$slug.$url_red_wpml;
+            }
         } else {
-            $redirect_url = '/'.$slug.$url_red_wpml;
+            $redirect_url = '/'.$slug.'/'; 
         }
     } else {
-        $redirect_url = '/'.$slug.'/'; 
+        if($rts_wpml_support) {
+            if(is_null($language) || $language == 'en') {
+                $redirect_url = '/shop/';
+            } else {
+                $redirect_url = '/shop'.$url_red_wpml;
+            }
+        } else {
+            $redirect_url = '/shop/'; 
+        }
     }
 
 	return $redirect_url;
@@ -54,8 +67,6 @@ function rts_page_callback() {
 
         update_option('rts_page_id',$rts_page_id);
         update_option('rts_wpml_support',$rts_wpml_support);
-        
-        // echo "RTS Page ID: ".$rts_page_id." | RTS WPML Support: ".$rts_wpml_support;
     }
     ?>
     <div class="wrap">
