@@ -2,7 +2,7 @@
 /*
 Plugin Name: Return to shop
 Description: Redirect return to shop button. Requires WPML & WooCommerce
-Plugin URI:  https://smitpatelx.com
+Plugin URI:  https://github.com/smitpatelx/return_to_shop
 Author:      Smit Patel
 Author URI:  https://smitpatelx.com
 Version:     1.0.1
