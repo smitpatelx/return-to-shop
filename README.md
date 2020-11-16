@@ -1,6 +1,6 @@
 # Return To Shop
 
-+ Wordpress 5.4.2 Tested ☑️
++ Wordpress 5.2 or later ☑️
 + WPML support ☑️
 + WooCommerce ☑️
 
