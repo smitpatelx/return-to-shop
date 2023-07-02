@@ -8,7 +8,7 @@
 - WooCommerce
 
 ## Modification & Contribution
-- Feel free to change, modify & distribute under GPL V3
+- Feel free to change, modify & distribute under GPL V2
 - Dont push directly to master branch
 - Do not change author's name **Smit Patel**
 - Add your own name after modification as follow:
